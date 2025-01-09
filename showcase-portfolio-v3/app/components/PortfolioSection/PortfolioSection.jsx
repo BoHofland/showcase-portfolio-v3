@@ -41,9 +41,10 @@ function PortfolioItem({ item }) {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <div className="max-w-md">
+            <p className="text-lg text-red-500">{item.label}</p>
           <h2 className="text-3xl font-bold mb-4">{item.title}</h2>
           <p className="text-lg text-gray-600">{item.description}</p>
-          <p className="text-lg text-gray-600">{item.label}</p>
+          
         </div>
       </motion.div>
 
