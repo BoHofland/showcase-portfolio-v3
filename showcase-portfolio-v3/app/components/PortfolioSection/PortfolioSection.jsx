@@ -1,7 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { motion, useInView, useAnimation } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import * as framerMotion from "framer-motion";
+
+const { motion, useInView, useAnimation } = framerMotion;
 
 export default function PortfolioSection({ items }) {
   return (
