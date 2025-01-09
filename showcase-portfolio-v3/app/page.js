@@ -1,4 +1,7 @@
-import PortfolioSection from './components/PortfolioSection/PortfolioSection';
+import TextSliderWerk from "./components/TextSliderWerk/TextSliderWerk";
+import TextSliderContact from "./components/TextSliderContact/TextSliderContact";
+import PortfolioSection from "./components/PortfolioSection/PortfolioSection";
+import Header from "./components/header/page";
 
 const portfolioItems = [
   {
@@ -26,11 +29,29 @@ const portfolioItems = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background">
-      <div className="max-w-6xl mx-auto px-4 py-16">
-        <h1 className="text-4xl font-bold text-center mb-16">My Portfolio</h1>
-        <PortfolioSection items={portfolioItems} />
+    <div>
+      <Header />
+      
+      {/* Welkomstbericht */}
+      <h1 className="text-center text-2xl font-bold my-8">Welkom op mijn website</h1>
+      
+      {/* TextSlider animatie */}
+      <TextSliderWerk />
+      
+
+      
+      {/* Portfolio sectie */}
+      <main className="min-h-screen bg-background">
+        <div className="max-w-6xl mx-auto px-4 py-16">
+          <h1 className="text-4xl font-bold text-center mb-16">My Portfolio</h1>
+          <PortfolioSection items={portfolioItems} />
+        </div>
+      </main>
+
+            {/* ContactAnimatie */}
+      <div className="mt-12"> {/* Voeg wat marge toe tussen de twee animaties */}
+        <TextSliderContact />
       </div>
-    </main>
+    </div>
   );
 }

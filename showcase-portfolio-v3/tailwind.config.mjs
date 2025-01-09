@@ -11,6 +11,24 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      height: {
+        custom: '20rem',
+      },
+      fontSize: {
+        'custom-xl': '18.75rem',
+      },
+      fontFamily: {
+        geologica: ['Geologica', 'sans-serif'],
+      },
+      keyframes: {
+        slideLeft: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+      },
+      animation: {
+        slideLeft: 'slideLeft 15s linear infinite',
+      },
     },
   },
   plugins: [],
