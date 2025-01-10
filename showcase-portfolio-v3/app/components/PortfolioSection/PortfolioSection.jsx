@@ -1,9 +1,12 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as framerMotion from "framer-motion";
 
 const { motion, useInView, useAnimation } = framerMotion;
+
+// Array met kleuren
+const colors = ["text-blue-500", "text-orange-500", "text-yellow-500", "text-purple-500"];
 
 export default function PortfolioSection({ items }) {
   return (
@@ -20,6 +23,8 @@ function PortfolioItem({ item }) {
   const isInView = useInView(ref, { once: false, margin: "-100px" });
   const controls = useAnimation();
 
+  const [colorIndex, setColorIndex] = useState(0);
+
   useEffect(() => {
     if (isInView) {
       controls.start("visible");
@@ -27,6 +32,15 @@ function PortfolioItem({ item }) {
       controls.start("hidden");
     }
   }, [isInView, controls]);
+
+  // Kleuren veranderen in een trage loop met langer wachten
+  useEffect(() => {
+    const colorInterval = setInterval(() => {
+      setColorIndex((prevIndex) => (prevIndex + 1) % colors.length);
+    }, 5000); // Verander kleur elke 8 seconden
+
+    return () => clearInterval(colorInterval); // Opruimen bij unmount
+  }, []);
 
   return (
     <div
@@ -41,10 +55,14 @@ function PortfolioItem({ item }) {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <div className="max-w-md">
-            <p className="text-lg text-red-500">{item.label}</p>
+          {/* Dynamische labelkleur met een trage overgang */}
+          <p
+            className={`text-lg ${colors[colorIndex]} transition-colors duration-[2000ms]`}
+          >
+            {item.label}
+          </p>
           <h2 className="text-3xl font-bold mb-4">{item.title}</h2>
           <p className="text-lg text-gray-600">{item.description}</p>
-          
         </div>
       </motion.div>
 

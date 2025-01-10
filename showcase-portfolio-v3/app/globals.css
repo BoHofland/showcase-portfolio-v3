@@ -27,6 +27,6 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 2px #ff7e5f; /* Vaste kleur voor de outline */
+  -webkit-text-stroke: 2px; /* Vaste kleur voor de outline */
   color: transparent;
 }
