@@ -3,10 +3,10 @@ import { FaLinkedin, FaGithub, FaEnvelope, FaInstagram } from 'react-icons/fa';
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-16 bg-background">
+    <section id="contact" className="py-16 bg-background mb-32">
       <div className="container mx-auto px-4">
         
-        <div className="flex justify-center gap-12">
+        <div className="flex justify-center gap-12 mb-32">
           <a
             href="mailto:bohofland@gmail.com"
             className="contact-icon-link group"

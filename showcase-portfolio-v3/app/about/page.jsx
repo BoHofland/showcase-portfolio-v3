@@ -4,7 +4,7 @@ import Header from '../components/header/page';
 import Contact from '../components/contact/page';
 import { FaHtml5, FaCss3Alt, FaJs, FaFigma, FaReact } from 'react-icons/fa';
 import { SiAdobephotoshop } from 'react-icons/si';
-
+import TextSliderContact from '../components/TextSliderContact/TextSliderContact';
 export default function About() {
   const colors = [
     'text-blue-500',
@@ -62,7 +62,7 @@ export default function About() {
         </div>
 
         {/* Skills sectie */}
-        <div className="mt-48 mb-96">
+        <div className="mt-48 ">
           <h2 className="text-8xl font-bold mb-8">
             Skills
           </h2>
@@ -99,6 +99,11 @@ export default function About() {
           </div>
         </div>
       </div>
+            {/* ContactAnimatie */}
+      <div className="py-32 md:py-40">
+        <TextSliderContact />
+      </div>
+      {/* Contact sectie */}
       <Contact />
     </main>
   );
