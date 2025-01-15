@@ -66,20 +66,24 @@ function PortfolioItem({ item }) {
         </div>
       </motion.div>
 
-      {/* Afbeeldingsgedeelte */}
+      {/* Afbeeldingsgedeelte met gradient border */}
       <motion.div
-        className="relative w-full md:w-[500px] h-[600px]"
+        className="relative w-full md:w-[500px] h-[600px] group"
         initial={{ opacity: 0, y: 100 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <div className="relative w-full h-full overflow-hidden rounded-lg shadow-xl">
-          <img
-            src={item.image}
-            alt={item.title}
-            className="object-cover w-full h-full transform transition-transform duration-700 hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+        {/* Gradient border container */}
+        <div className="absolute inset-0 p-1 rounded-lg bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-xy">
+          {/* Afbeelding container */}
+          <div className="relative w-full h-full overflow-hidden rounded-lg">
+            <img
+              src={item.image}
+              alt={item.title}
+              className="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+          </div>
         </div>
       </motion.div>
     </div>
