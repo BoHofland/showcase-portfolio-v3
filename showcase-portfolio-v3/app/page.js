@@ -2,7 +2,7 @@ import TextSliderWerk from "./components/TextSliderWerk/TextSliderWerk";
 import TextSliderContact from "./components/TextSliderContact/TextSliderContact";
 import PortfolioSection from "./components/PortfolioSection/PortfolioSection";
 import Header from "./components/header/page";
-
+import Contact from "./components/contact/page";
 const portfolioItems = [
   {
     id: 1,
@@ -49,6 +49,9 @@ export default function Home() {
       <div className="mt-12"> {/* Voeg wat marge toe tussen de twee animaties */}
         <TextSliderContact />
       </div>
+
+      {/* Contact sectie */}
+      <Contact />
     </div>
   );
 }

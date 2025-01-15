@@ -30,3 +30,40 @@ body {
   -webkit-text-stroke: 2px; /* Vaste kleur voor de outline */
   color: transparent;
 }
+
+.contact-icon-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.contact-icon-wrapper {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.contact-icon {
+  font-size: 2rem;
+  transition: all 0.3s ease;
+}
+
+.contact-label {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.contact-icon-link:hover .contact-icon-wrapper {
+  background: var(--primary-color, #3182ce);
+  transform: translateY(-5px);
+}
+
+.contact-icon-link:hover .contact-label {
+  opacity: 1;
+  color: var(--primary-color, #3182ce);
+}

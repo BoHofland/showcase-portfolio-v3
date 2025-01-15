@@ -1,4 +1,5 @@
 import Header from '../components/header/page';
+import Contact from '../components/contact/page';
 
 export default function About() {
   return (
@@ -25,6 +26,8 @@ export default function About() {
           </div>
         </div>
       </div>
+      <Contact />
     </main>
+
   );
 }
