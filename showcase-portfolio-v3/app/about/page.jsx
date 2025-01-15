@@ -1,14 +1,18 @@
 import Header from '../components/header/page';
 import Contact from '../components/contact/page';
-
+import TextSliderOverMij from '../components/TextSliderOver-mij/TextSliderOver-mij';
 export default function About() {
   return (
     <main className="min-h-screen bg-background text-white">
       <Header />
+
+      <div className="py-32 md:py-40">
+        <TextSliderOverMij />
+      </div>
+      
       <div className="container mx-auto px-4 py-16 mt-16">
-        <h1 className="text-8xl font-bold mb-16 mt-16">
-          Over mij
-        </h1>
+
+
 
         <div className="text-2xl text-gray-300 space-y-8 max-w-4xl mb-32">
           <p>
