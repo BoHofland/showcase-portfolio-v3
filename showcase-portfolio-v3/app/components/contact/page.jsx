@@ -12,10 +12,10 @@ export default function Contact() {
             className="contact-icon-link group"
             aria-label="Email"
           >
-            <div className="contact-icon-wrapper">
-              <FaEnvelope className="contact-icon" />
+            <div className="contact-icon-wrapper bg-gray-700/50 group-hover:bg-orange-500 transition-colors duration-300">
+              <FaEnvelope className="contact-icon text-white" />
             </div>
-            <span className="contact-label">Email</span>
+            <span className="contact-label group-hover:text-orange-500 transition-colors duration-300">Email</span>
           </a>
 
           <a
@@ -25,10 +25,10 @@ export default function Contact() {
             className="contact-icon-link group"
             aria-label="LinkedIn"
           >
-            <div className="contact-icon-wrapper">
-              <FaLinkedin className="contact-icon" />
+            <div className="contact-icon-wrapper bg-gray-700/50 group-hover:bg-blue-600 transition-colors duration-300">
+              <FaLinkedin className="contact-icon text-white" />
             </div>
-            <span className="contact-label">LinkedIn</span>
+            <span className="contact-label group-hover:text-blue-600 transition-colors duration-300">LinkedIn</span>
           </a>
 
           <a
@@ -38,10 +38,10 @@ export default function Contact() {
             className="contact-icon-link group"
             aria-label="GitHub"
           >
-            <div className="contact-icon-wrapper">
-              <FaGithub className="contact-icon" />
+            <div className="contact-icon-wrapper bg-gray-700/50 group-hover:bg-purple-600 transition-colors duration-300">
+              <FaGithub className="contact-icon text-white" />
             </div>
-            <span className="contact-label">GitHub</span>
+            <span className="contact-label group-hover:text-purple-600 transition-colors duration-300">GitHub</span>
           </a>
         </div>
       </div>
