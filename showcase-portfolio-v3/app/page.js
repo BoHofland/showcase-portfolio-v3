@@ -3,6 +3,8 @@ import TextSliderContact from "./components/TextSliderContact/TextSliderContact"
 import PortfolioSection from "./components/PortfolioSection/PortfolioSection";
 import Header from "./components/header/page";
 import Contact from "./components/contact/page";
+import Hero from "./components/Hero/Hero";
+
 const portfolioItems = [
   {
     id: 1,
@@ -31,12 +33,12 @@ export default function Home() {
   return (
     <div>
       <Header />
-      
+      <Hero />
       
       {/* TextSlider animatie */}
+      <div className="py-32 md:py-40">
       <TextSliderWerk />
-      
-
+      </div>
       
       {/* Portfolio sectie */}
       <main className="min-h-screen bg-background">
@@ -45,8 +47,8 @@ export default function Home() {
         </div>
       </main>
 
-            {/* ContactAnimatie */}
-      <div className="mt-12"> {/* Voeg wat marge toe tussen de twee animaties */}
+      {/* ContactAnimatie */}
+      <div className="py-32 md:py-40">
         <TextSliderContact />
       </div>
 
