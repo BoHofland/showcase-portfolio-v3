@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import * as framerMotion from "framer-motion";
+import { useRouter } from 'next/navigation';
 
 const { motion, useInView, useAnimation } = framerMotion;
 
@@ -22,6 +23,7 @@ function PortfolioItem({ item }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: "-100px" });
   const controls = useAnimation();
+  const router = useRouter();
 
   const [colorIndex, setColorIndex] = useState(0);
 
@@ -41,6 +43,16 @@ function PortfolioItem({ item }) {
 
     return () => clearInterval(colorInterval); // Opruimen bij unmount
   }, []);
+
+  const handleClick = () => {
+    if (item.id === 1) {
+      router.push('/project1');
+    } else if (item.id === 2) {
+      router.push('/project2');
+    } else if (item.id === 3) {
+      router.push('/project3');
+    }
+  };
 
   return (
     <div
@@ -68,7 +80,8 @@ function PortfolioItem({ item }) {
 
       {/* Afbeeldingsgedeelte met gradient border */}
       <motion.div
-        className="relative w-full md:w-[500px] h-[600px] group"
+        className="relative w-full md:w-[500px] h-[600px] group cursor-pointer"
+        onClick={handleClick}
         initial={{ opacity: 0, y: 100 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
