@@ -6,6 +6,17 @@ export default function Header() {
       <div className="container mx-auto">
         <nav className="flex justify-end space-x-8">
           <Link 
+            href="/" 
+            className="text-2xl text-white relative group overflow-hidden"
+          >
+            <span className="inline-block transform transition-transform duration-300 group-hover:-translate-y-full">
+              Home
+            </span>
+            <span className="absolute left-0 inline-block transform translate-y-full transition-transform duration-300 group-hover:translate-y-0 text-primary">
+              Home
+            </span>
+          </Link>
+          <Link 
             href="/about" 
             className="text-2xl text-white relative group overflow-hidden"
           >

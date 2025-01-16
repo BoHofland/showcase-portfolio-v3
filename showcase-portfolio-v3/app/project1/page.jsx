@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
+import Header from '../components/header/page';
 
 const sections = [
   {
@@ -143,7 +144,9 @@ export default function Project1() {
   }, [currentSection, isScrolling]);
 
   return (
-    <div className="relative h-screen overflow-hidden bg-[#0f0f0f]">
+    <div className="relative h-screen overflow-hidden bg-background">
+      <Header />
+      
       {/* Progress Bar */}
       <div className="fixed bottom-0 left-0 w-full h-1 bg-gray-800 z-50">
         <div
@@ -168,7 +171,7 @@ export default function Project1() {
         }}
       >
         {/* Intro Section */}
-        <section className="w-screen h-screen flex items-center p-16 shrink-0 bg-[#0f0f0f]">
+        <section className="w-screen h-screen flex items-center p-16 shrink-0 bg-background">
           <div className="max-w-4xl">
             <h1 className="text-7xl font-bold mb-8 text-white">
               {sections[0].title}
@@ -180,7 +183,7 @@ export default function Project1() {
         </section>
 
         {/* Overview Section */}
-        <section className="w-screen h-screen flex items-center p-16 shrink-0 bg-[#0f0f0f]">
+        <section className="w-screen h-screen flex items-center p-16 shrink-0 bg-background">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-7xl mx-auto">
             <div className="space-y-8">
               <h2 className="text-4xl font-bold text-white">{sections[1].title}</h2>
@@ -199,7 +202,7 @@ export default function Project1() {
         </section>
 
         {/* Process Section */}
-        <section className="w-screen h-screen flex items-center p-16 shrink-0 bg-[#0f0f0f]">
+        <section className="w-screen h-screen flex items-center p-16 shrink-0 bg-background">
           <div className="max-w-7xl mx-auto w-full">
             <h2 className="text-4xl font-bold mb-16 text-white">{sections[2].title}</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -215,7 +218,7 @@ export default function Project1() {
         </section>
 
         {/* Results Section */}
-        <section className="w-screen h-screen flex items-center p-16 shrink-0 bg-[#0f0f0f]">
+        <section className="w-screen h-screen flex items-center p-16 shrink-0 bg-background">
           <div className="max-w-7xl mx-auto w-full">
             <h2 className="text-4xl font-bold mb-16 text-white">{sections[3].title}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
