@@ -42,16 +42,23 @@ export default function Project1() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [currentSection, setCurrentSection] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
+  const animationFrameRef = useRef(null);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
     const updateScrollProgress = () => {
-      const totalScroll = container.scrollWidth - container.clientWidth;
-      const currentScroll = container.scrollLeft;
-      const progress = (currentScroll / totalScroll) * 100;
-      setScrollProgress(progress);
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+
+      animationFrameRef.current = requestAnimationFrame(() => {
+        const totalScroll = container.scrollWidth - container.clientWidth;
+        const currentScroll = container.scrollLeft;
+        const progress = (currentScroll / totalScroll) * 100;
+        setScrollProgress(progress);
+      });
     };
 
     const scrollToSection = (direction) => {
@@ -69,8 +76,6 @@ export default function Project1() {
         left: window.innerWidth * newSection,
         behavior: 'smooth'
       });
-
-      updateScrollProgress();
       
       setTimeout(() => {
         setIsScrolling(false);
@@ -79,13 +84,12 @@ export default function Project1() {
 
     let scrollTimeout;
     let scrollDelta = 0;
-    const touchpadThreshold = 50; // Verhoogd van 15 naar 35 voor touchpad
-    const mouseWheelThreshold = 50; // Threshold voor muiswiel blijft hetzelfde
+    const touchpadThreshold = 50;
+    const mouseWheelThreshold = 50;
 
     const handleWheel = (e) => {
       e.preventDefault();
       
-      // Touchpad detectie (kleinere deltaY waarden)
       if (Math.abs(e.deltaY) < mouseWheelThreshold) {
         scrollDelta += e.deltaY;
         if (Math.abs(scrollDelta) > touchpadThreshold) {
@@ -93,9 +97,13 @@ export default function Project1() {
           scrollDelta = 0;
         }
       } else {
-        // Muis wheel (grotere deltaY waarden)
         scrollToSection(e.deltaY > 0 ? 'next' : 'prev');
       }
+    };
+
+    // Scroll event listener voor continue updates
+    const handleScroll = () => {
+      updateScrollProgress();
     };
 
     // Touch handling
@@ -109,6 +117,7 @@ export default function Project1() {
     const handleTouchMove = (e) => {
       e.preventDefault();
       touchEnd = e.touches[0].clientX;
+      updateScrollProgress(); // Update tijdens touch beweging
     };
 
     const handleTouchEnd = () => {
@@ -120,18 +129,20 @@ export default function Project1() {
 
     // Event listeners
     container.addEventListener('wheel', handleWheel, { passive: false });
+    container.addEventListener('scroll', handleScroll, { passive: false });
     container.addEventListener('touchstart', handleTouchStart);
     container.addEventListener('touchmove', handleTouchMove, { passive: false });
     container.addEventListener('touchend', handleTouchEnd);
-    container.addEventListener('scroll', updateScrollProgress);
 
     return () => {
       container.removeEventListener('wheel', handleWheel);
+      container.removeEventListener('scroll', handleScroll);
       container.removeEventListener('touchstart', handleTouchStart);
       container.removeEventListener('touchmove', handleTouchMove);
       container.removeEventListener('touchend', handleTouchEnd);
-      container.removeEventListener('scroll', updateScrollProgress);
-      clearTimeout(scrollTimeout);
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
     };
   }, [currentSection, isScrolling]);
 
@@ -140,85 +151,102 @@ export default function Project1() {
       {/* Progress Bar */}
       <div className="fixed bottom-0 left-0 w-full h-1 bg-gray-800 z-50">
         <div
-          className="h-full bg-white transition-all duration-300"
-          style={{ width: `${scrollProgress}%` }}
+          className="h-full bg-white"
+          style={{ 
+            width: `${scrollProgress}%`,
+            transition: 'none', // Verwijder transitie voor directe updates
+            willChange: 'width',
+            transform: 'translateZ(0)'
+          }}
         />
       </div>
 
       {/* Main Content */}
       <main
         ref={containerRef}
-        className="h-screen flex overflow-x-auto overflow-y-hidden scrollbar-hide"
+        className="h-screen flex overflow-x-auto overflow-y-hidden scrollbar-hide transition-all duration-700 ease-in-out"
         style={{ 
           scrollBehavior: 'smooth',
-          scrollSnapType: 'x mandatory'
+          scrollSnapType: 'x mandatory',
+          WebkitOverflowScrolling: 'touch'
         }}
       >
-        {/* Intro Section */}
-        <section className={`w-screen h-screen flex items-center p-16 shrink-0 ${sections[0].bgColor}`}>
-          <div className="max-w-4xl">
-            <h1 className="text-7xl font-bold mb-8 text-white">
-              {sections[0].title}
-            </h1>
-            <p className="text-2xl text-gray-300">
-              {sections[0].subtitle}
-            </p>
-          </div>
-        </section>
+        {sections.map((section, index) => (
+          <section 
+            key={section.id}
+            className={`
+              w-screen h-screen flex items-center p-16 shrink-0
+              transition-transform duration-700 ease-in-out
+              ${section.bgColor || 'bg-background'}
+            `}
+            style={{
+              scrollSnapAlign: 'start',
+              willChange: 'transform'
+            }}
+          >
+            {index === 0 && (
+              <div className="max-w-4xl">
+                <h1 className="text-7xl font-bold mb-8 text-white">
+                  {section.title}
+                </h1>
+                <p className="text-2xl text-gray-300">
+                  {section.subtitle}
+                </p>
+              </div>
+            )}
 
-        {/* Overview Section */}
-        <section className={`w-screen h-screen flex items-center p-16 shrink-0 ${sections[1].bgColor}`}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-7xl mx-auto">
-            <div className="space-y-8">
-              <h2 className="text-4xl font-bold text-white">{sections[1].title}</h2>
-              <p className="text-xl text-gray-300">{sections[1].content}</p>
-            </div>
-            <div className="relative h-[600px]">
-              <Image
-                src={sections[1].image}
-                alt="Project Overview"
-                fill
-                className="object-cover rounded-lg"
-                priority
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* Process Section */}
-        <section className={`w-screen h-screen flex items-center p-16 shrink-0 ${sections[2].bgColor}`}>
-          <div className="max-w-7xl mx-auto w-full">
-            <h2 className="text-4xl font-bold mb-16 text-white">{sections[2].title}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              {sections[2].phases.map((phase) => (
-                <div key={phase.number} className="space-y-4">
-                  <div className="text-5xl font-bold text-gray-500">{phase.number}</div>
-                  <h3 className="text-2xl font-semibold text-white">{phase.title}</h3>
-                  <p className="text-gray-300">{phase.description}</p>
+            {index === 1 && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-7xl mx-auto">
+                <div className="space-y-8">
+                  <h2 className="text-4xl font-bold text-white">{section.title}</h2>
+                  <p className="text-xl text-gray-300">{section.content}</p>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Results Section */}
-        <section className={`w-screen h-screen flex items-center p-16 shrink-0 ${sections[3].bgColor}`}>
-          <div className="max-w-7xl mx-auto w-full">
-            <h2 className="text-4xl font-bold mb-16 text-white">{sections[3].title}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {sections[3].images.map((image, index) => (
-                <div key={index} className="relative h-[400px]">
+                <div className="relative h-[600px]">
                   <Image
-                    src={image.src}
-                    alt={image.alt}
+                    src={section.image}
+                    alt="Project Overview"
                     fill
                     className="object-cover rounded-lg"
+                    priority
                   />
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
+              </div>
+            )}
+
+            {index === 2 && (
+              <div className="max-w-7xl mx-auto w-full">
+                <h2 className="text-4xl font-bold mb-16 text-white">{section.title}</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                  {section.phases.map((phase) => (
+                    <div key={phase.number} className="space-y-4">
+                      <div className="text-5xl font-bold text-gray-500">{phase.number}</div>
+                      <h3 className="text-2xl font-semibold text-white">{phase.title}</h3>
+                      <p className="text-gray-300">{phase.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {index === 3 && (
+              <div className="max-w-7xl mx-auto w-full">
+                <h2 className="text-4xl font-bold mb-16 text-white">{section.title}</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {section.images.map((image, index) => (
+                    <div key={index} className="relative h-[400px]">
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        fill
+                        className="object-cover rounded-lg"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </section>
+        ))}
       </main>
     </div>
   );
