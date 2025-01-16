@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="p-4 bg-background relative z-20">
+    <header className="p-4 bg-transparent relative z-20">
       <div className="container mx-auto">
         <nav className="flex justify-end space-x-8">
           <Link 

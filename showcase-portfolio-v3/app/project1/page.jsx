@@ -3,6 +3,7 @@ import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Header from '../components/header/page';
 import { motion } from 'framer-motion';
+
 const sections = [
   {
     id: 'intro',
@@ -13,7 +14,7 @@ const sections = [
     id: 'overview',
     title: 'Project Overview',
     content: 'Een uitgebreide beschrijving van het project, de doelen en de gebruikte technologieën.',
-    image: '/images/project1-overview.jpg'
+    image: '/images/Upendo-logo.png'
   },
   {
     id: 'process',
@@ -187,7 +188,7 @@ export default function Project1() {
 
         {/* Overview Section */}
         <section className="w-screen h-screen flex items-center p-16 shrink-0 bg-black">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-7xl mx-auto items-center">
             <motion.div
               initial={{ x: -50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
@@ -203,13 +204,13 @@ export default function Project1() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.5 }}
-              className="relative h-[600px]"
+              className="relative h-[400px] flex items-center justify-center"
             >
               <Image
                 src={sections[1].image}
                 alt="Project Overview"
                 fill
-                className="object-cover rounded-lg"
+                className="object-contain p-8"
                 priority
               />
             </motion.div>
