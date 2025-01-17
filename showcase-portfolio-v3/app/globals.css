@@ -135,3 +135,20 @@ body {
   animation: slideLeft 10s linear infinite;
   /* 5s voor de duur van de animatie */
 }
+
+.fixed-scroll-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #3182ce;
+  color: white;
+  padding: 1rem;
+  border-radius: 50%;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.fixed-scroll-top:hover {
+  background-color: #2563eb;
+}
