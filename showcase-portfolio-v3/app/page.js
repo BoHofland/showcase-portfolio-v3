@@ -5,6 +5,7 @@ import Header from "./components/header/page";
 import Contact from "./components/contact/page";
 import Hero from "./components/Hero/Hero";
 import Skills from "./components/Skills/Skills";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 const portfolioItems = [
   {
     id: 1,
@@ -56,6 +57,10 @@ export default function Home() {
 
       {/* Contact sectie */}
       <Contact />
+
+      {/* Scroll to top button */}
+      <ScrollToTop />
     </div>
   );
 }
+
