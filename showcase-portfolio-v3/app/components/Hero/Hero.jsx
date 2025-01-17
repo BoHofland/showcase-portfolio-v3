@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section className="bg-background py-32 md:py-40">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16 mt-16 mb-16">
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16 mt-16 mb-8">
           {/* Afbeelding */}
           <div className="w-full md:w-1/2">
             <Image

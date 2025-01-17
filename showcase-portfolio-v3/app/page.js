@@ -4,7 +4,7 @@ import PortfolioSection from "./components/PortfolioSection/PortfolioSection";
 import Header from "./components/header/page";
 import Contact from "./components/contact/page";
 import Hero from "./components/Hero/Hero";
-
+import Skills from "./components/Skills/Skills";
 const portfolioItems = [
   {
     id: 1,
@@ -34,9 +34,11 @@ export default function Home() {
     <div>
       <Header />
       <Hero />
+      <Skills />
+
       
       {/* TextSlider animatie */}
-      <div className="py-32 md:py-40">
+      <div className="py-16 md:py-20">
       <TextSliderWerk />
       </div>
       
