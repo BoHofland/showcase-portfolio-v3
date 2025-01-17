@@ -120,3 +120,18 @@ body {
     display: none;
   }
 }
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-slideLeft {
+  animation: slideLeft 10s linear infinite;
+  /* 5s voor de duur van de animatie */
+}
