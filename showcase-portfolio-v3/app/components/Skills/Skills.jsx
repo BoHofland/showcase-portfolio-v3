@@ -26,10 +26,10 @@ export default function Skills() {
   return (
     <motion.section
       className="min-h-screen bg-background text-white flex items-center justify-center"
-      initial={{ opacity: 0, y: 100 }} // Start verder naar beneden en volledig onzichtbaar
-      whileInView={{ opacity: 1, y: 0 }} // Eindig op originele positie en volledig zichtbaar
-      viewport={{ once: true, amount: 0.2 }} // Begin de animatie als 20% van de sectie zichtbaar is
-      transition={{ duration: 1.75, ease: "easeOut" }} // Vertraagde en soepelere overgang
+      initial={{ opacity: 0, y: 100 }} 
+      whileInView={{ opacity: 1, y: 0 }} 
+      viewport={{ once: true, amount: 0.2 }} 
+      transition={{ duration: 1.75, ease: "easeOut" }} 
     >
       <div className="container mx-auto px-4 pt-8 pb-8">
         {/* Skills sectie */}

@@ -146,7 +146,9 @@ export default function Project1() {
 
   return (
     <div className="relative h-screen overflow-hidden bg-black">
-      <Header />
+      <div className="bg-black">
+        <Header />
+      </div>
 
       {/* Neon Progress Bar */}
       <div className="fixed bottom-0 left-0 w-full h-1 bg-gray-800 z-50">
