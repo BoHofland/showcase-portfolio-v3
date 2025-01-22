@@ -9,9 +9,6 @@ Welkom bij de derde versie van mijn showcase-portfolio. Deze applicatie is ontwi
 - [Gebruik](#gebruik)
 - [Projectstructuur](#projectstructuur)
 - [Functionaliteiten](#functionaliteiten)
-- [Toekomstige Verbeteringen](#toekomstige-verbeteringen)
-- [Bijdragen](#bijdragen)
-- [Licentie](#licentie)
 
 ## Overzicht
 
