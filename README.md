@@ -17,6 +17,8 @@ Welkom bij de derde versie van mijn showcase-portfolio. Deze applicatie is ontwi
 
 Dit project dient als een persoonlijk portfolio om mijn vaardigheden, projecten en professionele reis in de softwareontwikkeling te presenteren. Het biedt een modern en responsief ontwerp om bezoekers een optimale ervaring te bieden.
 
+Bekijk de live versie hier: [Showcase Portfolio v3](https://showcase-portfolio-v3.onrender.com)
+
 ## Installatie
 
 Volg de onderstaande stappen om het project lokaal te installeren:
