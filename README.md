@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Showcase Portfolio v3
 
-## Getting Started
+Welkom bij de derde versie van mijn showcase-portfolio. Deze applicatie is ontwikkeld met [Next.js](https://nextjs.org/), een React-framework voor productieklare applicaties, en maakt gebruik van [Tailwind CSS](https://tailwindcss.com/) voor gestileerde componenten.
 
-First, run the development server:
+## Inhoud
 
-```bash
+- [Overzicht](#overzicht)
+- [Installatie](#installatie)
+- [Gebruik](#gebruik)
+- [Projectstructuur](#projectstructuur)
+- [Functionaliteiten](#functionaliteiten)
+- [Toekomstige Verbeteringen](#toekomstige-verbeteringen)
+- [Bijdragen](#bijdragen)
+- [Licentie](#licentie)
+
+## Overzicht
+
+Dit project dient als een persoonlijk portfolio om mijn vaardigheden, projecten en professionele reis in de softwareontwikkeling te presenteren. Het biedt een modern en responsief ontwerp om bezoekers een optimale ervaring te bieden.
+
+## Installatie
+
+Volg de onderstaande stappen om het project lokaal te installeren:
+
+1. **Kloon de repository:**
+
+   ```bash
+   git clone https://github.com/BoHofland/showcase-portfolio-v3.git
+Navigeer naar de projectmap:
+
+bash
+Kopiëren
+Bewerken
+cd showcase-portfolio-v3
+Installeer de benodigde pakketten:
+
+bash
+Kopiëren
+Bewerken
+npm install
+Of gebruik yarn:
+
+bash
+Kopiëren
+Bewerken
+yarn install
+Gebruik
+Start de ontwikkelserver met:
+
+bash
+Kopiëren
+Bewerken
 npm run dev
-# or
+Of met yarn:
+
+bash
+Kopiëren
+Bewerken
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000 in je browser om de applicatie te bekijken. Wijzigingen in de bestanden zullen de pagina automatisch bijwerken.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Projectstructuur
+De belangrijkste mappen en bestanden in dit project zijn:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+app/: Bevat de pagina's en componenten van de applicatie.
+public/: Bevat statische bestanden zoals afbeeldingen.
+styles/: Bevat de globale stijlen en Tailwind CSS-configuraties.
+package.json: Bevat de lijst van afhankelijkheden en scripts.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Functionaliteiten
+Responsief Ontwerp: Geoptimaliseerd voor verschillende schermformaten.
+Projectoverzicht: Een sectie om voltooide projecten te tonen met beschrijvingen en links.
+Vaardigheden: Een overzicht van technische vaardigheden en expertise.
+Contactformulier: Een formulier waarmee bezoekers contact kunnen opnemen.
