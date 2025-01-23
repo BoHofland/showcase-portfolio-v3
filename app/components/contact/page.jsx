@@ -19,7 +19,7 @@ export default function Contact() {
           </a>
 
           <a
-            href="https://linkedin.com/in/yourprofile"
+            href="https://www.linkedin.com/in/bo-hofland-861b21348/"
             target="_blank"
             rel="noopener noreferrer"
             className="contact-icon-link group"
@@ -32,7 +32,7 @@ export default function Contact() {
           </a>
 
           <a
-            href="https://github.com/yourprofile"
+            href="https://github.com/BoHofland"
             target="_blank"
             rel="noopener noreferrer"
             className="contact-icon-link group"
